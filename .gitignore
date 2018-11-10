@@ -20,3 +20,7 @@ wp-content/plugins/hello.php
 /sitemap.xml.gz
 .idea/*
 /vendor/
+/composer.lock
+
+tests/_output/*
+tests/_output/*

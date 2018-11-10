@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "FormsPlugin\\": "."
+        }
+    },
+    "require": {
+        "codeception/codeception": "*",
+        "phpunit/phpunit": ">=4.0.0"
+
+    }
+}

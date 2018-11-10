@@ -10,10 +10,7 @@ Author URI: http://URI_Of_The_Plugin_Author
 License: A "Slug" license name e.g. GPL2
 */
 namespace FormsPlugin;
-require_once plugin_dir_path( __FILE__ ) . 'autoload.php';
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+require_once __DIR__.'/vendor/autoload.php';
 
 define('FORMS_PLUGIN_PATH', dirname(__FILE__));
 
