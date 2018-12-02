@@ -43,7 +43,7 @@ class FormsRequestController extends BaseController
 
         $tableWidget->prepareItems();
 
-        echo $this->render('/admin/views/list', $items, $tableWidget);
+        echo $this->render('/Admin/views/list', $items, $tableWidget);
     }
 
     public function actionEditRequest()
@@ -74,7 +74,7 @@ class FormsRequestController extends BaseController
             $items['data'] = $model->attributes();
         }
 
-        echo $this->render('/admin/views/edit_request', $items, $this);
+        echo $this->render('/Admin/views/edit_request', $items, $this);
     }
 
     public function actionDeleteRequest()
