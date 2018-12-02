@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FormsPlugin\admin\Controller;
+namespace FormsPlugin\Admin\Controller;
 
 
 class PluginSettingsController extends BaseController
