@@ -6,6 +6,7 @@ namespace FormsPlugin\Models;
 use FormsPlugin\Plugin;
 use FormsPlugin\Models\Traits\DataBaseModelStore;
 use FormsPlugin\Models\Traits\LoadableModel;
+use FormsPlugin\Services\DataBaseService;
 
 class FormsRequest implements DataBaseModel
 {
@@ -21,6 +22,14 @@ class FormsRequest implements DataBaseModel
 
     public $serviceName;
 
+    public $formTopicId;
+
+    public $formTopicName;
+
+    public $formSubject;
+
+    public $formMessage;
+
     public function tableName()
     {
         return Plugin::PLUGIN_ALIAS.'_'.'forms';
@@ -30,9 +39,10 @@ class FormsRequest implements DataBaseModel
     {
         return [
             'id' => 'Id',
-            'senderName' => 'senderName',
-            'senderEmail' => 'senderEmail',
-            'senderPhone' => 'senderPhone',
+            'formTopicName' => 'Тема обращения',
+            'senderName' => 'Имя',
+            'senderEmail' => 'Email',
+            'senderPhone' => 'Номер телефона',
         ];
     }
 
@@ -114,7 +124,6 @@ class FormsRequest implements DataBaseModel
         if ($post!=null) {
             return $post->post_title;
         }
-
     }
 
     /**
@@ -123,6 +132,68 @@ class FormsRequest implements DataBaseModel
     public function setServiceName($serviceName)
     {
         $this->serviceName = $serviceName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormTopicId()
+    {
+        return $this->formTopicId;
+    }
+
+    /**
+     * @param mixed $formTopicId
+     */
+    public function setFormTopicId($formTopicId)
+    {
+        $this->formTopicId = $formTopicId;
+    }
+
+    /**
+     * @return null
+     */
+    public function getFormTopicName()
+    {
+        $dataBaseService = new DataBaseService();
+        $rawData = $dataBaseService->findAll($this->tableName(), ['id' => $this->formTopicId]);
+        if (!isset($rawData[0])) {
+            return null;
+        }
+        $data = $dataBaseService->loadStoredModel($rawData[0]);
+        return $data->getName();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormSubject()
+    {
+        return $this->formSubject;
+    }
+
+    /**
+     * @param mixed $formSubject
+     */
+    public function setFormSubject($formSubject)
+    {
+        $this->formSubject = $formSubject;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormMessage()
+    {
+        return $this->formMessage;
+    }
+
+    /**
+     * @param mixed $formMessage
+     */
+    public function setFormMessage($formMessage)
+    {
+        $this->formMessage = $formMessage;
     }
 
 }

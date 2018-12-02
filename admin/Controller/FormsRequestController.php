@@ -26,7 +26,10 @@ class FormsRequestController extends BaseController
         $columns = $formsRequestModel->getAttributesName();
 
         $dataBaseService = new DataBaseService();
-        $data = $dataBaseService->findAll($formsRequestModel->tableName(), ['model'=> "FormsPlugin\\\Models\\\FormsRequest"]);
+        $data = $dataBaseService->findAll(
+            $formsRequestModel->tableName(),
+            ['model'=> "FormsPlugin\\\Models\\\FormsRequest"],
+            ['id' => 'DESC']);
 
         $tableWidget = new AdminTableWidget(
             $data,

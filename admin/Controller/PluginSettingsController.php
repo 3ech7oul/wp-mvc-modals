@@ -44,12 +44,17 @@ class PluginSettingsController extends BaseController
             [&$this, 'textfieldCallback'],	$this->items['page'] ,  $this->items['pageSection'],
             ['item' => self::SETTINGS_NAME.'_email_to', 'default' => '']);
 
+        add_settings_field(self::SETTINGS_NAME.'_bot_token', 'Bot token',
+            [&$this, 'textfieldCallback'],	$this->items['page'] ,  $this->items['pageSection'],
+            ['item' => self::SETTINGS_NAME.'_bot_token', 'default' => '']);
+
 
     }
 
     public function sanitizeSetting($input)
     {
         $output[self::SETTINGS_NAME.'_email_to'] = force_balance_tags($input[self::SETTINGS_NAME.'_email_to']);
+        $output[self::SETTINGS_NAME.'_bot_token'] = force_balance_tags($input[self::SETTINGS_NAME.'_bot_token']);
         return $output;
 
     }

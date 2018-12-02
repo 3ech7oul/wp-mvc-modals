@@ -6,7 +6,7 @@
     },
     "require": {
         "codeception/codeception": "*",
-        "phpunit/phpunit": ">=4.0.0"
-
+        "phpunit/phpunit": ">=4.0.0",
+        "unreal4u/telegram-api": "~3.4"
     }
 }

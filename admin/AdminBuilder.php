@@ -109,8 +109,8 @@ class AdminBuilder
 	    $formsController = new FormsTypesController();
 	    add_submenu_page(
 	        $parent,
-            "Типы форм",
-			'Типы форм',
+            "Темы",
+			'Темы',
 			'manage_options',
             'forms-index',
 			[$formsController, 'initController']

@@ -4,6 +4,8 @@
 namespace FormsPlugin\FrontEnd\Controller;
 
 use FormsPlugin\Models\FormsRequest;
+use FormsPlugin\Models\FormsRequestRepresentation;
+use FormsPlugin\Services\TelegramService;
 
 
 class Ajax
@@ -21,7 +23,11 @@ class Ajax
 
         $formRequest = new FormsRequest();
         $formRequest->load($data);
-        return $formRequest->save();
+        $formRequest->save();
+
+        $represFormsRequest = new FormsRequestRepresentation();
+        $represFormsRequest->setFormsRequest($formRequest);
+        $this->sendTelegram($represFormsRequest->getTelegramFormat());
     }
 
     /**
@@ -36,6 +42,16 @@ class Ajax
         }
 
         return $result;
+    }
+
+    /**
+     * @param $message
+     * @return bool
+     */
+    private function sendTelegram($message)
+    {
+        $telegramService = new TelegramService();
+        return $telegramService->sendMessage($message);
     }
 
 }
