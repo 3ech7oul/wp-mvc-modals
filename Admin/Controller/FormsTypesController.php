@@ -54,7 +54,7 @@ class FormsTypesController extends BaseController
         $tableWidget->prepareItems();
         $tableWidget->setWidgetItemActions($tableWidgetActions);
 
-        echo $this->render('/admin/views/list', $items, $tableWidget);
+        echo $this->render('/Admin/views/list', $items, $tableWidget);
     }
 
     public function actionEditForm()
@@ -85,7 +85,7 @@ class FormsTypesController extends BaseController
             $items['data'] = $model->attributes();
         }
 
-        echo $this->render('/admin/views/edit_form', $items, $this);
+        echo $this->render('/Admin/views/edit_form', $items, $this);
     }
 
     public function actionDeleteForm()
