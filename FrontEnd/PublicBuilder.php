@@ -36,6 +36,7 @@ class PublicBuilder
         $this->name = $name;
         $this->version = $version;
         add_action( 'wp_ajax_HandlerSendForms',  array( &$this, 'ajaxHandlerSendForms'  ));
+        add_action( 'wp_ajax_nopriv_HandlerSendForms',  array( &$this, 'ajaxHandlerSendForms'  ));
     }
 
     /**

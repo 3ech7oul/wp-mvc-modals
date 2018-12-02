@@ -28,6 +28,7 @@ class Ajax
         $represFormsRequest = new FormsRequestRepresentation();
         $represFormsRequest->setFormsRequest($formRequest);
         $this->sendTelegram($represFormsRequest->getTelegramFormat());
+        return true;
     }
 
     /**
