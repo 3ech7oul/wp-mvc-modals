@@ -25,7 +25,7 @@ class PluginSettingsController extends BaseController
     {
         do_action(  self::SETTINGS_NAME.'-nav-tabs');
 		do_action( self::SETTINGS_NAME.'_menu_after_nav_tabs' );
-        echo $this->render('/admin/views/settings', $this->items);
+        echo $this->render('/Admin/views/settings', $this->items);
     }
 
     public function pluginSettings()
