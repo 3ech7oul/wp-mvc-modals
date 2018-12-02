@@ -44,6 +44,10 @@ class PluginSettingsController extends BaseController
             [&$this, 'textfieldCallback'],	$this->items['page'] ,  $this->items['pageSection'],
             ['item' => self::SETTINGS_NAME.'_email_to', 'default' => '']);
 
+        add_settings_field(self::SETTINGS_NAME.'_username', 'Telegram usernames',
+            [&$this, 'textfieldCallback'],	$this->items['page'] ,  $this->items['pageSection'],
+            ['item' => self::SETTINGS_NAME.'_username', 'default' => '']);
+
         add_settings_field(self::SETTINGS_NAME.'_bot_token', 'Bot token',
             [&$this, 'textfieldCallback'],	$this->items['page'] ,  $this->items['pageSection'],
             ['item' => self::SETTINGS_NAME.'_bot_token', 'default' => '']);
@@ -55,6 +59,7 @@ class PluginSettingsController extends BaseController
     {
         $output[self::SETTINGS_NAME.'_email_to'] = force_balance_tags($input[self::SETTINGS_NAME.'_email_to']);
         $output[self::SETTINGS_NAME.'_bot_token'] = force_balance_tags($input[self::SETTINGS_NAME.'_bot_token']);
+        $output[self::SETTINGS_NAME.'_username'] = force_balance_tags($input[self::SETTINGS_NAME.'_username']);
         return $output;
 
     }

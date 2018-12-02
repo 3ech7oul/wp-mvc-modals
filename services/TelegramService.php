@@ -21,7 +21,8 @@ class TelegramService
     {
         $pluginOptions =  \get_option('plugin_form');
         $this->botToken = $pluginOptions['plugin_form_bot_token'];
-        $this->allowUsers = ['techsoul'];
+        $allowUsersString = $pluginOptions['plugin_form_username'];
+        $this->allowUsers = explode(",",$allowUsersString);
     }
 
     private function getUpdates()
